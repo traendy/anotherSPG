@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Another1</title>
+    <meta name="description" content="Helpfile">
+    <meta name="eos.uptrade" content="Documentation">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+    <a class="backtotoplink" name="navbar.top.firstrow"></a>
+    <div class="topNav">
+        <ul class="subNav">
+            <li id="navbar-element" class="dropdown"><a class="dropbtn" href="#navbar.top.firstrow">Home</a></li>
+            <li id="navbar-element" class="dropdown">
+                <a class="dropbtn">Blog</a>
+                <div class="dropdown-content">
+                    <!-- BLOG_ITEM_PLACEHOLDER -->
+                </div>
+            </li>
+
+            <li id="navbar-element" class="dropdown">
+                <a class="dropbtn">Projects</a>
+                <div class="dropdown-content">
+                    <!-- PROJECTS_ITEM_PLACEHOLDER -->
+                </div>
+            </li>
+
+            <li id="navbar-element" class="dropdown">
+                <a class="dropbtn">ME</a>
+                <div class="dropdown-content">
+                    <!-- ME_ITEM_PLACEHOLDER -->
+                </div>
+            </li>
+        </ul>
+        <div class="aboutLanguage">
+        
+        </div>
+    </div>
+    <div class="main" id="content">
+        <!-- CONTENT_ITEM_PLACEHOLDER -->
+
+    </div>
+
+    <div class="backtotop"><a href="#navbar.top.firstrow">Back to top</a></div>
+
+</body>
+<script>
+    function updateContent(item) {
+        //document.getElementById("content").innerHTML="<p>item</p>"
+        //document.body.updateContent
+        //var xhr = new XMLHttpRequest();
+        //xhr.open('GET', '/curriculum.md.js', true);
+        //xhr.onreadystatechange = function () {
+        // if (this.readyState !== 4) return; // if NOT request finished and response is ready
+        // if (this.status !== 200) return; //if NOT OK
+        //   document.getElementById('content').innerHTML = this.responseText;
+        // };
+        //xhr.send();
+
+        fetch('/'+String(item)+'.md.html')
+            .then(response => response.text())
+            .then((data) => {
+                document.getElementById('content').innerHTML = data;
+            })
+    }
+</script>
+</html>
